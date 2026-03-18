@@ -1,7 +1,7 @@
 # About Dan
 
 ## Identity
-- **Name:** Dan
+- **Name:** Dan Elliott
 - **Location:** Vancouver, BC, Canada (America/Vancouver)
 - **Email:** agile.guy@hotmail.com
 - **GitHub:** agileguy

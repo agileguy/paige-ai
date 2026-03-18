@@ -4,7 +4,7 @@
 - **Company:** StoicAI
 - **Website:** https://stoicai.ca
 - **Blog:** https://www.agileguy.ca
-- **Founder:** Dan
+- **Founder:** Dan Elliott
 - **Location:** Vancouver, BC, Canada
 - **Founded:** 2026
 - **Focus:** AI automation for Canadian charities and nonprofits
