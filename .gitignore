@@ -66,3 +66,23 @@ credentials/
 .claude/pai_updates/
 .claude/pai_backups/
 .claude/.pai-sync-history
+
+# PAI secrets, sessions, and ephemeral state
+.claude/.credentials.json
+.claude/.env
+.claude/sessions/
+.claude/cache/
+.claude/debug/
+.claude/file-history/
+.claude/history.jsonl
+.claude/shell-snapshots/
+.claude/mcp-needs-auth-cache.json
+.claude/mcs-worker-running.json
+.claude/projects/
+.claude/todos/
+.claude/backups/
+.claude/telemetry/
+.claude/.quote-cache
+.claude/plugins/marketplaces/
+.claude/worktrees/
+.claude/session-env/

@@ -1,0 +1,339 @@
+[
+  {
+    "name": "Bash",
+    "input": {
+      "command": "echo \"TMUX=$TMUX\" && echo \"TERM=$TERM\" && echo \"TERM_PROGRAM=$TERM_PROGRAM\"",
+      "description": "Check tmux environment variables"
+    },
+    "timestamp": "2026-03-14T17:34:35.146Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "voice",
+      "path": "/Users/dan/.claude",
+      "glob": "*.md",
+      "output_mode": "content",
+      "-i": true
+    },
+    "timestamp": "2026-03-14T17:35:39.630Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "notify",
+      "path": "/Users/dan/.claude",
+      "glob": "*.md",
+      "output_mode": "content"
+    },
+    "timestamp": "2026-03-14T17:35:39.908Z"
+  },
+  {
+    "name": "Glob",
+    "input": {
+      "pattern": "/Users/dan/.claude/hooks/**/Voice*.ts"
+    },
+    "timestamp": "2026-03-14T17:35:47.253Z"
+  },
+  {
+    "name": "Glob",
+    "input": {
+      "pattern": "/Users/dan/.claude/hooks/**/voice*.ts"
+    },
+    "timestamp": "2026-03-14T17:35:47.701Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "localhost:8888",
+      "path": "/Users/dan/.claude/hooks",
+      "output_mode": "files_with_matches"
+    },
+    "timestamp": "2026-03-14T17:35:48.387Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/hooks/handlers/VoiceNotification.ts"
+    },
+    "timestamp": "2026-03-14T17:35:51.164Z"
+  },
+  {
+    "name": "Edit",
+    "input": {
+      "replace_all": false,
+      "file_path": "/Users/dan/.claude/hooks/handlers/VoiceNotification.ts",
+      "old_string": "async function sendNotification(payload: ElevenLabsNotificationPayload, sessionId: string): Promise<void> {\n  const voiceId = payload.voice_id || DA_IDENTITY.mainDAVoiceID;",
+      "new_string": "function isInTmux(): boolean {\n  return !!process.env.TMUX;\n}\n\nasync function sendNotification(payload: ElevenLabsNotificationPayload, sessionId: string): Promise<void> {\n  // Skip voice notifications in tmux sessions\n  if (isInTmux()) {\n    return;\n  }\n\n  const voiceId = payload.voice_id || DA_IDENTITY.mainDAVoiceID;"
+    },
+    "timestamp": "2026-03-14T17:36:01.553Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "localhost:8888",
+      "path": "/Users/dan/.claude/hooks/UpdateTabTitle.hook.ts",
+      "output_mode": "content"
+    },
+    "timestamp": "2026-03-14T17:36:06.253Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/hooks/UpdateTabTitle.hook.ts",
+      "offset": 210,
+      "limit": 30
+    },
+    "timestamp": "2026-03-14T17:36:09.093Z"
+  },
+  {
+    "name": "Edit",
+    "input": {
+      "replace_all": false,
+      "file_path": "/Users/dan/.claude/hooks/UpdateTabTitle.hook.ts",
+      "old_string": "    const voiceContent = voiceSummary || (quickTitle && isValidWorkingTitle(quickTitle) ? quickTitle : null);\n    if (voiceContent) {",
+      "new_string": "    const voiceContent = voiceSummary || (quickTitle && isValidWorkingTitle(quickTitle) ? quickTitle : null);\n    if (voiceContent && !process.env.TMUX) {"
+    },
+    "timestamp": "2026-03-14T17:36:14.238Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/projects/-Users-dan-repos-paige/memory/MEMORY.md"
+    },
+    "timestamp": "2026-03-14T17:36:18.340Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "ls /Users/dan/.claude/projects/-Users-dan-repos-paige/memory/ 2>/dev/null || echo \"empty\"",
+      "description": "Check memory directory contents"
+    },
+    "timestamp": "2026-03-14T17:36:22.410Z"
+  },
+  {
+    "name": "Write",
+    "input": {
+      "file_path": "/Users/dan/.claude/projects/-Users-dan-repos-paige/memory/feedback_no_voice_in_tmux.md",
+      "content": "---\nname: No voice in tmux\ndescription: Skip all voice notifications (including inline curl commands) when running in a tmux session\ntype: feedback\n---\n\nDo not execute voice notification curl commands when the session is running inside tmux ($TMUX is set).\n\n**Why:** Dan doesn't want TTS voice announcements when working in tmux sessions.\n\n**How to apply:** Before running any inline `curl` to `localhost:8888/notify` (e.g., Algorithm phase announcements, native mode voice), check if `$TMUX` is set and skip the curl if so. The hook-based voice (VoiceNotification.ts, UpdateTabTitle.hook.ts) already has tmux checks built in.\n"
+    },
+    "timestamp": "2026-03-14T17:36:30.190Z"
+  },
+  {
+    "name": "Write",
+    "input": {
+      "file_path": "/Users/dan/.claude/projects/-Users-dan-repos-paige/memory/MEMORY.md",
+      "content": "# Memory Index\n\n- [feedback_no_voice_in_tmux.md](feedback_no_voice_in_tmux.md) — Skip voice notifications when in tmux session\n"
+    },
+    "timestamp": "2026-03-14T17:36:31.307Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/skills/Utilities/Delegation/SKILL.md"
+    },
+    "timestamp": "2026-03-14T19:22:12.943Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "statusline|status.line|status_line",
+      "path": "/Users/dan/.claude",
+      "glob": "*.json",
+      "-i": true,
+      "output_mode": "files_with_matches"
+    },
+    "timestamp": "2026-03-14T20:03:47.878Z"
+  },
+  {
+    "name": "Glob",
+    "input": {
+      "pattern": "/Users/dan/.claude/**/*statusline*"
+    },
+    "timestamp": "2026-03-14T20:03:48.295Z"
+  },
+  {
+    "name": "Glob",
+    "input": {
+      "pattern": "/Users/dan/.claude/**/*status*"
+    },
+    "timestamp": "2026-03-14T20:03:48.452Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/statusline-command.sh"
+    },
+    "timestamp": "2026-03-14T20:03:52.344Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "statusline",
+      "path": "/Users/dan/.claude/settings.json",
+      "output_mode": "content",
+      "-C": 3
+    },
+    "timestamp": "2026-03-14T20:03:53.029Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "PAI STATUSLINE|PAI.STATUSLINE|statusline_title|HEADER",
+      "path": "/Users/dan/.claude/statusline-command.sh",
+      "output_mode": "content",
+      "-n": true
+    },
+    "timestamp": "2026-03-14T20:03:57.638Z"
+  },
+  {
+    "name": "Grep",
+    "input": {
+      "pattern": "color|COLOR|theme|THEME|ansi|ANSI",
+      "path": "/Users/dan/.claude/statusline-command.sh",
+      "output_mode": "content",
+      "-n": true,
+      "head_limit": 30
+    },
+    "timestamp": "2026-03-14T20:03:58.593Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/statusline-command.sh",
+      "offset": 474,
+      "limit": 100
+    },
+    "timestamp": "2026-03-14T20:04:02.160Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/statusline-command.sh",
+      "offset": 785,
+      "limit": 50
+    },
+    "timestamp": "2026-03-14T20:04:02.618Z"
+  },
+  {
+    "name": "Read",
+    "input": {
+      "file_path": "/Users/dan/.claude/statusline-command.sh",
+      "offset": 780,
+      "limit": 8
+    },
+    "timestamp": "2026-03-14T20:04:13.438Z"
+  },
+  {
+    "name": "Edit",
+    "input": {
+      "replace_all": false,
+      "file_path": "/Users/dan/.claude/statusline-command.sh",
+      "old_string": "# PAI Branding (matches banner colors)\nPAI_P='\\033[38;2;30;58;138m'          # Navy\nPAI_A='\\033[38;2;59;130;246m'         # Medium blue\nPAI_I='\\033[38;2;147;197;253m'        # Light blue\nPAI_LABEL='\\033[38;2;100;116;139m'    # Slate for \"status line\"",
+      "new_string": "# PAI Branding (lime green theme)\nPAI_BRAND='\\033[1;38;2;132;204;22m'   # Bold lime green for \"Paige\"\nPAI_BRAND_LIGHT='\\033[38;2;163;230;53m' # Light lime for accents\nPAI_A='\\033[38;2;132;204;22m'         # Lime green (used in ENV line)\nPAI_LABEL='\\033[38;2;100;116;139m'    # Slate for labels"
+    },
+    "timestamp": "2026-03-14T20:04:20.538Z"
+  },
+  {
+    "name": "Edit",
+    "input": {
+      "replace_all": false,
+      "file_path": "/Users/dan/.claude/statusline-command.sh",
+      "old_string": "        printf \"${SLATE_600}── │${RESET} ${PAI_P}P${PAI_A}A${PAI_I}I${RESET} ${SLATE_600}│ ────────────${RESET}\\n\"",
+      "new_string": "        printf \"${SLATE_600}── │${RESET} ${PAI_BRAND}Paige${RESET} ${SLATE_600}│ ────────────${RESET}\\n\""
+    },
+    "timestamp": "2026-03-14T20:04:24.830Z"
+  },
+  {
+    "name": "Edit",
+    "input": {
+      "replace_all": true,
+      "file_path": "/Users/dan/.claude/statusline-command.sh",
+      "old_string": "${PAI_P}P${PAI_A}A${PAI_I}I${RESET} ${PAI_A}STATUSLINE${RESET}",
+      "new_string": "${PAI_BRAND}Paige${RESET}"
+    },
+    "timestamp": "2026-03-14T20:04:30.378Z"
+  },
+  {
+    "name": "Edit",
+    "input": {
+      "replace_all": true,
+      "file_path": "/Users/dan/.claude/statusline-command.sh",
+      "old_string": "local_left=\"── │ PAI STATUSLINE │\"",
+      "new_string": "local_left=\"── │ Paige │\""
+    },
+    "timestamp": "2026-03-14T20:04:34.519Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "bash /Users/dan/.claude/statusline-command.sh 2>/dev/null | head -5",
+      "description": "Test statusline rendering"
+    },
+    "timestamp": "2026-03-14T20:04:38.551Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "bash /Users/dan/.claude/statusline-command.sh 2>/dev/null | head -3 | cat -v | grep -o 'Paige'",
+      "description": "Verify Paige text appears in output"
+    },
+    "timestamp": "2026-03-14T20:04:44.242Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "bash /Users/dan/.claude/statusline-command.sh 2>/dev/null | head -1 | sed 's/\\x1b\\[[0-9;]*m//g'",
+      "description": "Strip ANSI codes to verify plain text"
+    },
+    "timestamp": "2026-03-14T20:04:48.776Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "git status",
+      "description": "Show working tree status"
+    },
+    "timestamp": "2026-03-14T20:20:03.063Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "git diff",
+      "description": "Show staged and unstaged changes"
+    },
+    "timestamp": "2026-03-14T20:20:03.967Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "git log --oneline -5",
+      "description": "Recent commit messages for style"
+    },
+    "timestamp": "2026-03-14T20:20:04.308Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "git add Releases/v4.0.3/.claude/skills/Utilities/Parser/Web/output && git commit -m \"$(cat <<'EOF'\nfix: remove broken symlink in Parser/Web release artifact\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\nEOF\n)\"",
+      "description": "Stage deleted symlink and commit"
+    },
+    "timestamp": "2026-03-14T20:20:11.223Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "git status",
+      "description": "Verify clean working tree"
+    },
+    "timestamp": "2026-03-14T20:20:14.941Z"
+  },
+  {
+    "name": "Bash",
+    "input": {
+      "command": "which fabric 2>/dev/null && fabric --version 2>/dev/null || echo \"fabric not found in PATH\"",
+      "description": "Check if fabric CLI is installed"
+    },
+    "timestamp": "2026-03-14T20:20:20.259Z"
+  }
+]

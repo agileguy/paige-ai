@@ -1,0 +1,8 @@
+{
+  "rating": 3,
+  "summary": "Corrects Paige's claim about ~/.claude location",
+  "detailed_context": "Dan asked Paige to commit changes to the statusline and hook files (lime green theme, tmux voice suppression). Paige responded that these changes 'live in ~/.claude/ which is outside this repo.' Dan is now correcting this claim by pointing out that ~/.claude is actually a symlink pointing to .claude in the current repository folder, meaning the changes ARE inside the repo's version control structure. Paige mischaracterized the architecture and relationship between the directories. This is a factual error about the codebase structure that Paige should understand. Dan's implied frustration: Paige should know how the project's directory structure and symlinks work, especially after having worked with it throughout this session. The question format is polite but signals correction.",
+  "session_id": "2e0b45fe-4e10-47e5-bff0-4639b69e26a8",
+  "captured_at": "2026-03-14T20:21:14.389Z",
+  "transcript_source": "2e0b45fe-4e10-47e5-bff0-4639b69e26a8.jsonl"
+}

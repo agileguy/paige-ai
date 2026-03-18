@@ -1,0 +1,37 @@
+Everything's clean. Here's the current state:
+
+🔧 CHANGE:
+- Restored `~/.claude` from backup (no longer a symlink)
+- Removed all copied PAI files from repo `.claude/` (only `statusline-command.sh` remains)
+- Reverted `.gitignore` to original
+- Remote `origin` → `agileguy/paige-ai` (your fork)
+- Remote `upstream` → `danielmiessler/Personal_AI_Infrastructure` (original)
+
+✅ VERIFY:
+- `~/.claude` is a real directory again
+- Working tree clean, no staged changes
+- Remotes correctly configured
+
+---
+
+## Setting up PAI on your fork
+
+Now that `origin` points to your fork, here's how to use it:
+
+```bash
+# Push current state to your fork
+git push origin main
+
+# To sync with upstream (Daniel's repo) later:
+git fetch upstream
+git merge upstream/main
+
+# To push your own PAI changes:
+# 1. Make changes
+# 2. git add / git commit
+# 3. git push origin main
+```
+
+The statusline changes (lime green, compact, "Paige" branding) and hook changes (tmux voice suppression) are still in `~/.claude` from the backup — they're just not in the repo yet. When you're ready to version-control `~/.claude`, we can set up the symlink approach again but pointing at your fork this time.
+
+🗣️ Paige: Undone — fork set up at agileguy/paige-ai, repo clean, ~/.claude restored.

@@ -1,0 +1,26 @@
+{
+  "sessions": {
+    "20260314-102400_good-morning-paige-tell-me-about-yoursel": {
+      "task": "good morning Paige, tell me about yourself",
+      "sessionName": "Morning Paige Yourself Task",
+      "sessionUUID": "5ebc2751-e5eb-4af2-ad1a-7503280f9e42",
+      "phase": "native",
+      "progress": "0/0",
+      "effort": "native",
+      "mode": "native",
+      "started": "2026-03-14T17:24:46.951Z",
+      "updatedAt": "2026-03-14T17:24:46.951Z"
+    },
+    "20260314-103400_hello-paige-are-you-able-to-tell-if-you-": {
+      "task": "hello Paige, are you able to tell if you are running in a tmux session?",
+      "sessionName": "Detect Tmux Session Status",
+      "sessionUUID": "2e0b45fe-4e10-47e5-bff0-4639b69e26a8",
+      "phase": "native",
+      "progress": "0/0",
+      "effort": "native",
+      "mode": "native",
+      "started": "2026-03-14T17:34:18.784Z",
+      "updatedAt": "2026-03-18T20:06:41.830Z"
+    }
+  }
+}
